@@ -29,15 +29,13 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--tp);font-family:'Outfit','Noto Sans SC',sans-serif;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-/* BG */
 .bg-layer{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 80% 60% at 20% -10%,rgba(0,80,200,.1) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 80% 110%,rgba(0,60,150,.07) 0%,transparent 55%)}
 .bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 90% 90% at 50% 50%,black 20%,transparent 100%)}
 
-/* ── SCREENS ── */
 .screen{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;padding:24px;transition:opacity .3s,transform .3s}
 .screen.hidden{opacity:0;pointer-events:none;transform:translateY(12px)}
 
-/* ── AUTH SCREEN ── */
+/* AUTH */
 .auth-card{background:rgba(12,12,12,.95);border:1px solid var(--border);border-radius:28px;padding:48px 44px;width:100%;max-width:420px;backdrop-filter:blur(40px);box-shadow:0 40px 80px rgba(0,0,0,.6)}
 .auth-logo{font-size:28px;font-weight:700;letter-spacing:-1px;margin-bottom:6px}
 .auth-logo span{color:var(--accent-l)}
@@ -55,11 +53,10 @@ body{background:var(--bg);color:var(--tp);font-family:'Outfit','Noto Sans SC',sa
 .auth-error{background:rgba(255,59,48,.1);border:1px solid rgba(255,59,48,.25);border-radius:10px;padding:11px 14px;font-size:13px;color:var(--danger);margin-bottom:14px;display:none;font-family:'Noto Sans SC',sans-serif}
 .auth-error.show{display:block}
 
-/* ── MAIN APP ── */
+/* APP */
 #appScreen{position:fixed;inset:0;z-index:5;display:flex;flex-direction:column;transition:opacity .3s}
 #appScreen.hidden{opacity:0;pointer-events:none}
 
-/* Nav */
 .app-nav{height:56px;border-bottom:1px solid var(--border);background:rgba(0,0,0,.8);backdrop-filter:blur(24px);display:flex;align-items:center;padding:0 24px;gap:16px;flex-shrink:0;z-index:20}
 .nav-logo{font-size:17px;font-weight:700;letter-spacing:-.3px}
 .nav-logo span{color:var(--accent-l)}
@@ -70,25 +67,20 @@ body{background:var(--bg);color:var(--tp);font-family:'Outfit','Noto Sans SC',sa
 .user-chip{display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:5px 14px 5px 8px;font-size:13px;cursor:pointer;transition:all .2s}
 .user-chip:hover{background:var(--surface-h)}
 .user-av{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#0071e3,#00c6ff);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
-.api-btn{background:var(--surface);border:1px solid var(--border);color:var(--ts);padding:6px 14px;border-radius:20px;font-size:12px;cursor:pointer;transition:all .2s;font-family:inherit}
-.api-btn:hover{color:var(--tp);background:var(--surface-h)}
 
-/* Pages */
 .app-body{flex:1;overflow:hidden;position:relative}
 .page{position:absolute;inset:0;overflow:hidden;transition:opacity .25s,transform .25s}
 .page.hidden{opacity:0;pointer-events:none;transform:translateX(20px)}
 
-/* ── CHAT PAGE ── */
+/* CHAT */
 .chat-layout{display:flex;height:100%}
-
-/* Sidebar */
 .chat-sidebar{width:260px;border-right:1px solid var(--border);display:flex;flex-direction:column;background:rgba(5,5,5,.6);flex-shrink:0}
 .sidebar-header{padding:16px;border-bottom:1px solid var(--border)}
 .new-chat-btn{width:100%;background:var(--accent);border:none;color:#fff;padding:10px 16px;border-radius:var(--rs);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px}
 .new-chat-btn:hover{background:#0077ed}
 .sidebar-section{padding:12px 16px 6px;font-size:11px;font-weight:600;color:var(--tt);letter-spacing:1px;text-transform:uppercase}
 .chat-history-list{flex:1;overflow-y:auto;padding:0 8px 8px;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
-.history-item{padding:10px 12px;border-radius:var(--rs);cursor:pointer;transition:all .2s;margin-bottom:2px;font-size:13px;color:var(--ts);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.history-item{padding:10px 12px;border-radius:var(--rs);cursor:pointer;transition:all .2s;margin-bottom:2px;font-size:13px;color:var(--ts);display:flex;align-items:center;justify-content:space-between;gap:8px}
 .history-item:hover{background:var(--surface);color:var(--tp)}
 .history-item.active{background:var(--surface-h);color:var(--tp)}
 .history-item-text{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -98,7 +90,6 @@ body{background:var(--bg);color:var(--tp);font-family:'Outfit','Noto Sans SC',sa
 .history-date{font-size:11px;color:var(--tt);padding:8px 12px 4px;font-family:'Noto Sans SC',sans-serif}
 .no-history{padding:24px 16px;text-align:center;font-size:13px;color:var(--tt);font-family:'Noto Sans SC',sans-serif}
 
-/* Chat main */
 .chat-main{flex:1;display:flex;flex-direction:column;overflow:hidden}
 .chat-messages{flex:1;overflow-y:auto;padding:24px;display:flex;flex-direction:column;gap:16px;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
 .chat-messages::-webkit-scrollbar{width:4px}
@@ -134,7 +125,7 @@ body{background:var(--bg);color:var(--tp);font-family:'Outfit','Noto Sans SC',sa
 .welcome-title{font-size:22px;font-weight:700;letter-spacing:-.5px}
 .welcome-sub{font-size:14px;color:var(--ts);font-family:'Noto Sans SC',sans-serif;line-height:1.6;max-width:340px}
 
-/* ── INVOICE PAGE ── */
+/* INVOICE */
 .invoice-page{height:100%;overflow-y:auto;padding:32px;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
 .invoice-page::-webkit-scrollbar{width:4px}
 .invoice-page::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
@@ -171,7 +162,6 @@ body{background:var(--bg);color:var(--tp);font-family:'Outfit','Noto Sans SC',sa
 .inv-history-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--rs);padding:16px;cursor:pointer;transition:all .2s;display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:12px}
 .inv-history-item:hover{background:var(--surface-h);border-color:var(--border-h)}
 .inv-hist-icon{font-size:20px}
-.inv-hist-info{}
 .inv-hist-name{font-size:13px;font-weight:500;margin-bottom:3px}
 .inv-hist-meta{font-size:12px;color:var(--tt);font-family:'Noto Sans SC',sans-serif}
 .inv-hist-amount{font-size:14px;font-weight:600;color:var(--accent-l)}
@@ -183,29 +173,10 @@ body{background:var(--bg);color:var(--tp);font-family:'Outfit','Noto Sans SC',sa
 .inv-loading-dot:nth-child(2){animation-delay:.2s}
 .inv-loading-dot:nth-child(3){animation-delay:.4s}
 
-/* ── MODAL ── */
-.modal-overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.8);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .25s}
-.modal-overlay.show{opacity:1;pointer-events:all}
-.modal{background:#111;border:1px solid var(--border);border-radius:24px;padding:36px;width:100%;max-width:420px;transform:translateY(20px);transition:transform .25s}
-.modal-overlay.show .modal{transform:translateY(0)}
-.modal h3{font-size:20px;font-weight:700;letter-spacing:-.3px;margin-bottom:8px}
-.modal p{font-size:13px;color:var(--ts);margin-bottom:22px;line-height:1.6;font-family:'Noto Sans SC',sans-serif}
-.modal-input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--rs);padding:12px 15px;color:var(--tp);font-size:14px;font-family:inherit;outline:none;margin-bottom:14px;transition:border-color .2s}
-.modal-input:focus{border-color:rgba(0,113,227,.5)}
-.modal-input::placeholder{color:var(--tt)}
-.modal-actions{display:flex;gap:10px}
-.modal-cancel{flex:1;background:var(--surface);border:1px solid var(--border);color:var(--ts);padding:12px;border-radius:var(--rs);font-size:14px;cursor:pointer;font-family:inherit;transition:all .2s}
-.modal-cancel:hover{background:var(--surface-h)}
-.modal-save{flex:1;background:var(--accent);border:none;color:#fff;padding:12px;border-radius:var(--rs);font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s}
-.modal-save:hover{background:#0077ed}
-.modal-note{font-size:11px;color:var(--tt);margin-top:12px;text-align:center;line-height:1.5;font-family:'Noto Sans SC',sans-serif}
-
-/* ── ANIM ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}}
 
-/* Responsive */
 @media(max-width:700px){
   .chat-sidebar{display:none}
   .inv-grid{grid-template-columns:1fr}
@@ -221,7 +192,7 @@ body{background:var(--bg);color:var(--tp);font-family:'Outfit','Noto Sans SC',sa
 <div class="bg-layer"></div>
 <div class="bg-grid"></div>
 
-<!-- ══════════ AUTH SCREEN ══════════ -->
+<!-- AUTH -->
 <div class="screen" id="authScreen">
   <div class="auth-card">
     <div class="auth-logo">Tax<span>Mind</span></div>
@@ -260,7 +231,7 @@ body{background:var(--bg);color:var(--tp);font-family:'Outfit','Noto Sans SC',sa
   </div>
 </div>
 
-<!-- ══════════ MAIN APP ══════════ -->
+<!-- APP -->
 <div id="appScreen" class="hidden">
   <nav class="app-nav">
     <div class="nav-logo">Tax<span>Mind</span></div>
@@ -269,7 +240,6 @@ body{background:var(--bg);color:var(--tp);font-family:'Outfit','Noto Sans SC',sa
       <div class="nav-tab" id="tabInv" onclick="switchPage('invoice')">🧾 发票分析</div>
     </div>
     <div class="nav-right">
-      <button class="api-btn" onclick="openApiModal()">⚙ API Key</button>
       <div class="user-chip" onclick="doLogout()">
         <div class="user-av" id="userAvatar">U</div>
         <span id="userLabel">用户</span>
@@ -282,7 +252,6 @@ body{background:var(--bg);color:var(--tp);font-family:'Outfit','Noto Sans SC',sa
     <!-- CHAT PAGE -->
     <div class="page" id="pageChat">
       <div class="chat-layout">
-        <!-- Sidebar -->
         <div class="chat-sidebar">
           <div class="sidebar-header">
             <button class="new-chat-btn" onclick="newChat()">＋ 新建对话</button>
@@ -292,13 +261,12 @@ body{background:var(--bg);color:var(--tp);font-family:'Outfit','Noto Sans SC',sa
             <div class="no-history">暂无历史对话</div>
           </div>
         </div>
-        <!-- Main chat -->
         <div class="chat-main">
           <div class="chat-messages" id="chatMessages">
             <div class="welcome-state" id="welcomeState">
               <div class="welcome-icon">🧠</div>
               <div class="welcome-title">您好，我是 TaxMind</div>
-              <div class="welcome-sub">专为小微企业与个体工商户提供税务解答。请新建对话或选择历史记录开始咨询。</div>
+              <div class="welcome-sub">专为小微企业与个体工商户提供税务解答。点击「新建对话」开始咨询。</div>
             </div>
           </div>
           <div class="chat-suggestions" id="chatSuggs" style="display:none">
@@ -325,9 +293,7 @@ body{background:var(--bg);color:var(--tp);font-family:'Outfit','Noto Sans SC',sa
           <div class="inv-title">发票智能分析</div>
           <div class="inv-sub">录入发票信息，AI 自动识别风险、判断抵扣资格、给出合规建议</div>
         </div>
-
         <div class="inv-grid">
-          <!-- Form -->
           <div class="inv-card">
             <div class="inv-card-title">📄 发票基本信息</div>
             <div class="inv-form-group">
@@ -368,8 +334,6 @@ body{background:var(--bg);color:var(--tp);font-family:'Outfit','Noto Sans SC',sa
               </div>
             </div>
           </div>
-
-          <!-- More info -->
           <div class="inv-card">
             <div class="inv-card-title">🏢 购销方信息</div>
             <div class="inv-form-group">
@@ -402,8 +366,6 @@ body{background:var(--bg);color:var(--tp);font-family:'Outfit','Noto Sans SC',sa
               <span>🔍</span><span>开始分析</span>
             </button>
           </div>
-
-          <!-- Result -->
           <div class="inv-card inv-result-card" id="invResultCard">
             <div class="inv-result-header">
               <div class="inv-result-title">分析结果</div>
@@ -421,8 +383,6 @@ body{background:var(--bg);color:var(--tp);font-family:'Outfit','Noto Sans SC',sa
             </div>
           </div>
         </div>
-
-        <!-- Invoice History -->
         <div class="inv-history-section">
           <div class="inv-history-title">发票记录</div>
           <div class="inv-history-list" id="invHistoryList">
@@ -434,22 +394,7 @@ body{background:var(--bg);color:var(--tp);font-family:'Outfit','Noto Sans SC',sa
   </div>
 </div>
 
-<!-- API Key Modal -->
-<div class="modal-overlay" id="apiModal">
-  <div class="modal">
-    <h3>配置 Anthropic API Key</h3>
-    <p>密钥仅保存在您本地浏览器，不会上传至任何服务器。</p>
-    <input type="password" class="modal-input" id="apiKeyInput" placeholder="sk-ant-api03-…">
-    <div class="modal-actions">
-      <button class="modal-cancel" onclick="closeApiModal()">取消</button>
-      <button class="modal-save" onclick="saveApiKey()">保存</button>
-    </div>
-    <p class="modal-note">获取方式：console.anthropic.com → API Keys → Create Key</p>
-  </div>
-</div>
-
 <script>
-// ─── UTILS ───────────────────────────────────────────────
 const $ = id => document.getElementById(id);
 
 function hashPass(str) {
@@ -457,323 +402,183 @@ function hashPass(str) {
   for (let i = 0; i < str.length; i++) h = Math.imul(31, h) + str.charCodeAt(i) | 0;
   return h.toString(16);
 }
+function nowStr() { return new Date().toLocaleString('zh-CN',{hour12:false,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}); }
+function timeStr() { return new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit',hour12:false}); }
+function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-function nowStr() {
-  return new Date().toLocaleString('zh-CN', {hour12:false,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
-}
+function getUsers() { return JSON.parse(localStorage.getItem('tm_users')||'{}'); }
+function saveUsers(u) { localStorage.setItem('tm_users',JSON.stringify(u)); }
 
-function timeStr() {
-  return new Date().toLocaleTimeString('zh-CN', {hour:'2-digit',minute:'2-digit',hour12:false});
-}
-
-// ─── USER STORE ──────────────────────────────────────────
-function getUsers() { return JSON.parse(localStorage.getItem('tm_users') || '{}'); }
-function saveUsers(u) { localStorage.setItem('tm_users', JSON.stringify(u)); }
-
-// ─── SESSION ─────────────────────────────────────────────
 let currentUser = null;
-let apiKey = localStorage.getItem('tm_apikey') || '';
+function userKey(k) { return `tm_${currentUser}_${k}`; }
 
-function userKey(key) { return `tm_${currentUser}_${key}`; }
-
-// ─── AUTH TAB ────────────────────────────────────────────
 function switchAuthTab(tab) {
-  document.querySelectorAll('.auth-tab').forEach((t,i)=>t.classList.toggle('active', (i===0&&tab==='login')||(i===1&&tab==='register')));
-  $('loginForm').style.display = tab === 'login' ? 'block' : 'none';
-  $('registerForm').style.display = tab === 'register' ? 'block' : 'none';
+  document.querySelectorAll('.auth-tab').forEach((t,i)=>t.classList.toggle('active',(i===0&&tab==='login')||(i===1&&tab==='register')));
+  $('loginForm').style.display = tab==='login'?'block':'none';
+  $('registerForm').style.display = tab==='register'?'block':'none';
   $('authError').classList.remove('show');
 }
-
-function showAuthErr(msg) {
-  const el = $('authError');
-  el.textContent = msg;
-  el.classList.add('show');
-}
+function showAuthErr(msg) { const el=$('authError'); el.textContent=msg; el.classList.add('show'); }
 
 function doLogin() {
-  const user = $('loginUser').value.trim();
-  const pass = $('loginPass').value;
-  if (!user || !pass) { showAuthErr('请填写用户名和密码'); return; }
-  const users = getUsers();
-  if (!users[user]) { showAuthErr('用户名不存在，请先注册'); return; }
-  if (users[user].pass !== hashPass(pass)) { showAuthErr('密码错误，请重试'); return; }
+  const user=$('loginUser').value.trim(), pass=$('loginPass').value;
+  if(!user||!pass){showAuthErr('请填写用户名和密码');return;}
+  const users=getUsers();
+  if(!users[user]){showAuthErr('用户名不存在，请先注册');return;}
+  if(users[user].pass!==hashPass(pass)){showAuthErr('密码错误，请重试');return;}
   enterApp(user);
 }
-
 function doRegister() {
-  const user = $('regUser').value.trim();
-  const pass = $('regPass').value;
-  const pass2 = $('regPass2').value;
-  if (!user || !pass) { showAuthErr('请填写所有字段'); return; }
-  if (user.length < 4 || user.length > 20) { showAuthErr('用户名需为 4-20 位'); return; }
-  if (pass.length < 6) { showAuthErr('密码至少 6 位'); return; }
-  if (pass !== pass2) { showAuthErr('两次密码不一致'); return; }
-  const users = getUsers();
-  if (users[user]) { showAuthErr('该用户名已被注册'); return; }
-  users[user] = { pass: hashPass(pass), createdAt: Date.now() };
+  const user=$('regUser').value.trim(), pass=$('regPass').value, pass2=$('regPass2').value;
+  if(!user||!pass){showAuthErr('请填写所有字段');return;}
+  if(user.length<4||user.length>20){showAuthErr('用户名需为4-20位');return;}
+  if(pass.length<6){showAuthErr('密码至少6位');return;}
+  if(pass!==pass2){showAuthErr('两次密码不一致');return;}
+  const users=getUsers();
+  if(users[user]){showAuthErr('该用户名已被注册');return;}
+  users[user]={pass:hashPass(pass),createdAt:Date.now()};
   saveUsers(users);
-  $('authError').classList.remove('show');
-  $('loginUser').value = user;
-  $('loginPass').value = pass;
-  switchAuthTab('login');
-  setTimeout(doLogin, 100);
+  $('loginUser').value=user; $('loginPass').value=pass;
+  switchAuthTab('login'); setTimeout(doLogin,100);
 }
-
 function enterApp(user) {
-  currentUser = user;
+  currentUser=user;
   $('authScreen').classList.add('hidden');
   $('appScreen').classList.remove('hidden');
-  $('userLabel').textContent = user;
-  $('userAvatar').textContent = user.charAt(0).toUpperCase();
-  loadChatHistory();
-  loadInvHistory();
-  if (!apiKey) setTimeout(openApiModal, 600);
+  $('userLabel').textContent=user;
+  $('userAvatar').textContent=user.charAt(0).toUpperCase();
+  loadChatHistory(); loadInvHistory();
 }
-
 function doLogout() {
-  currentUser = null;
-  currentChatId = null;
-  conversationHistory = [];
+  currentUser=null; currentChatId=null; conversationHistory=[];
   $('appScreen').classList.add('hidden');
   $('authScreen').classList.remove('hidden');
-  $('loginUser').value = '';
-  $('loginPass').value = '';
+  $('loginUser').value=''; $('loginPass').value='';
   $('authError').classList.remove('show');
   switchAuthTab('login');
 }
 
-// ─── PAGE SWITCH ─────────────────────────────────────────
 function switchPage(page) {
-  $('tabChat').classList.toggle('active', page==='chat');
-  $('tabInv').classList.toggle('active', page==='invoice');
-  $('pageChat').classList.toggle('hidden', page!=='chat');
-  $('pageInvoice').classList.toggle('hidden', page!=='invoice');
+  $('tabChat').classList.toggle('active',page==='chat');
+  $('tabInv').classList.toggle('active',page==='invoice');
+  $('pageChat').classList.toggle('hidden',page!=='chat');
+  $('pageInvoice').classList.toggle('hidden',page!=='invoice');
 }
 
-// ─── API MODAL ───────────────────────────────────────────
-function openApiModal() {
-  $('apiKeyInput').value = apiKey;
-  $('apiModal').classList.add('show');
-}
-function closeApiModal() { $('apiModal').classList.remove('show'); }
-function saveApiKey() {
-  const k = $('apiKeyInput').value.trim();
-  if (!k) { alert('请输入 API Key'); return; }
-  apiKey = k;
-  localStorage.setItem('tm_apikey', k);
-  closeApiModal();
-}
-$('apiModal').addEventListener('click', e => { if (e.target === $('apiModal')) closeApiModal(); });
+// CHAT
+let currentChatId=null, conversationHistory=[], isSending=false;
 
-// ─── CHAT ────────────────────────────────────────────────
-let currentChatId = null;
-let conversationHistory = [];
-let isSending = false;
+function getChatStore(){return JSON.parse(localStorage.getItem(userKey('chats'))||'{}');}
+function saveChatStore(d){localStorage.setItem(userKey('chats'),JSON.stringify(d));}
 
-const SYSTEM_PROMPT = `你是 TaxMind，专为中国小微企业和个体工商户设计的专业税务 AI 顾问。
-
-专业领域：
-- 增值税（小规模/一般纳税人政策与申报流程）
-- 企业所得税 / 个人所得税（经营所得）
-- 印花税、城建税、教育附加等附加税费
-- 发票管理（普票、专票、验真、认证、抵扣规则）
-- 税收优惠政策（小微企业减免、个体户免税额度、各地优惠等）
-- 季度/月度申报流程与截止日期
-- 金税四期合规风险提示与规避建议
-
-回答要求：
-- 用清晰易懂的中文，遇到术语需简要解释
-- 回答有条理，适当使用序号列出步骤或要点
-- 数据和政策要准确，若有不确定请明确说明并建议核实
-- 结尾适当提醒"具体以主管税务机关或官方政策为准"
-- 语气专业、友好、简洁
-- 回答长度适中，简单问题 100-200 字，复杂问题 300-500 字`;
-
-function getChatStore() { return JSON.parse(localStorage.getItem(userKey('chats')) || '{}'); }
-function saveChatStore(data) { localStorage.setItem(userKey('chats'), JSON.stringify(data)); }
-
-function loadChatHistory() {
-  const store = getChatStore();
-  const list = $('chatHistoryList');
-  const ids = Object.keys(store).sort((a,b) => store[b].updatedAt - store[a].updatedAt);
-  if (!ids.length) { list.innerHTML = '<div class="no-history">暂无历史对话</div>'; return; }
-
-  let html = '';
-  const today = new Date().toDateString();
-  let lastDate = '';
-
-  ids.forEach(id => {
-    const chat = store[id];
-    const d = new Date(chat.updatedAt);
-    const dateStr = d.toDateString() === today ? '今天' : d.toLocaleDateString('zh-CN', {month:'long',day:'numeric'});
-    if (dateStr !== lastDate) {
-      html += `<div class="history-date">${dateStr}</div>`;
-      lastDate = dateStr;
-    }
-    html += `<div class="history-item ${id===currentChatId?'active':''}" onclick="loadChat('${id}')">
-      <span class="history-item-text">${escHtml(chat.title || '新对话')}</span>
+function loadChatHistory(){
+  const store=getChatStore(), list=$('chatHistoryList');
+  const ids=Object.keys(store).sort((a,b)=>store[b].updatedAt-store[a].updatedAt);
+  if(!ids.length){list.innerHTML='<div class="no-history">暂无历史对话</div>';return;}
+  const today=new Date().toDateString(); let lastDate='', html='';
+  ids.forEach(id=>{
+    const chat=store[id], d=new Date(chat.updatedAt);
+    const dateStr=d.toDateString()===today?'今天':d.toLocaleDateString('zh-CN',{month:'long',day:'numeric'});
+    if(dateStr!==lastDate){html+=`<div class="history-date">${dateStr}</div>`;lastDate=dateStr;}
+    html+=`<div class="history-item ${id===currentChatId?'active':''}" onclick="loadChat('${id}')">
+      <span class="history-item-text">${escHtml(chat.title||'新对话')}</span>
       <span class="history-del" onclick="deleteChat(event,'${id}')">✕</span>
     </div>`;
   });
-  list.innerHTML = html;
+  list.innerHTML=html;
 }
 
-function escHtml(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function newChat(){
+  currentChatId='chat_'+Date.now(); conversationHistory=[];
+  $('chatMessages').innerHTML=`<div class="welcome-state"><div class="welcome-icon">🧠</div><div class="welcome-title">开始新对话</div><div class="welcome-sub">请输入您的税务问题，我会为您详细解答。</div></div>`;
+  $('chatSuggs').style.display='flex';
+  loadChatHistory(); $('chatInput').focus();
 }
 
-function newChat() {
-  currentChatId = 'chat_' + Date.now();
-  conversationHistory = [];
-  const msgs = $('chatMessages');
-  msgs.innerHTML = `<div class="welcome-state" id="welcomeState">
-    <div class="welcome-icon">🧠</div>
-    <div class="welcome-title">开始新对话</div>
-    <div class="welcome-sub">请输入您的税务问题，我会为您详细解答。</div>
-  </div>`;
-  $('chatSuggs').style.display = 'flex';
-  loadChatHistory();
-  $('chatInput').focus();
-}
-
-function loadChat(id) {
-  const store = getChatStore();
-  const chat = store[id];
-  if (!chat) return;
-  currentChatId = id;
-  conversationHistory = chat.history || [];
-  const msgs = $('chatMessages');
-  msgs.innerHTML = '';
-  $('chatSuggs').style.display = 'none';
-
-  chat.messages.forEach(m => {
-    renderMsg(m.role, m.content, m.time, false);
-  });
-  msgs.scrollTop = msgs.scrollHeight;
+function loadChat(id){
+  const store=getChatStore(), chat=store[id]; if(!chat)return;
+  currentChatId=id; conversationHistory=chat.history||[];
+  $('chatMessages').innerHTML=''; $('chatSuggs').style.display='none';
+  chat.messages.forEach(m=>renderMsg(m.role,m.content,m.time,false));
+  $('chatMessages').scrollTop=$('chatMessages').scrollHeight;
   loadChatHistory();
 }
 
-function deleteChat(e, id) {
+function deleteChat(e,id){
   e.stopPropagation();
-  const store = getChatStore();
-  delete store[id];
-  saveChatStore(store);
-  if (currentChatId === id) {
-    currentChatId = null;
-    conversationHistory = [];
-    $('chatMessages').innerHTML = `<div class="welcome-state">
-      <div class="welcome-icon">🧠</div>
-      <div class="welcome-title">您好，我是 TaxMind</div>
-      <div class="welcome-sub">专为小微企业与个体工商户提供税务解答。请新建对话开始咨询。</div>
-    </div>`;
-    $('chatSuggs').style.display = 'none';
+  const store=getChatStore(); delete store[id]; saveChatStore(store);
+  if(currentChatId===id){
+    currentChatId=null; conversationHistory=[];
+    $('chatMessages').innerHTML=`<div class="welcome-state"><div class="welcome-icon">🧠</div><div class="welcome-title">您好，我是 TaxMind</div><div class="welcome-sub">请新建对话开始咨询。</div></div>`;
+    $('chatSuggs').style.display='none';
   }
   loadChatHistory();
 }
 
-function saveCurrentChat(userMsg, aiMsg) {
-  const store = getChatStore();
-  if (!store[currentChatId]) {
-    store[currentChatId] = { title: userMsg.slice(0, 28), messages: [], history: [], createdAt: Date.now(), updatedAt: Date.now() };
-  }
-  store[currentChatId].messages.push({ role:'user', content:userMsg, time:timeStr() });
-  store[currentChatId].messages.push({ role:'ai', content:aiMsg, time:timeStr() });
-  store[currentChatId].history = conversationHistory;
-  store[currentChatId].updatedAt = Date.now();
-  saveChatStore(store);
-  loadChatHistory();
+function saveCurrentChat(userMsg,aiMsg){
+  const store=getChatStore();
+  if(!store[currentChatId]) store[currentChatId]={title:userMsg.slice(0,28),messages:[],history:[],createdAt:Date.now(),updatedAt:Date.now()};
+  store[currentChatId].messages.push({role:'user',content:userMsg,time:timeStr()});
+  store[currentChatId].messages.push({role:'ai',content:aiMsg,time:timeStr()});
+  store[currentChatId].history=conversationHistory;
+  store[currentChatId].updatedAt=Date.now();
+  saveChatStore(store); loadChatHistory();
 }
 
-function renderMsg(role, content, time, animate=true) {
-  const isAI = role === 'ai';
-  const msgs = $('chatMessages');
-  const ws = $('welcomeState');
-  if (ws) ws.remove();
-
-  const div = document.createElement('div');
-  div.className = `msg ${role}`;
-  if (!animate) div.style.animation = 'none';
-  const initials = currentUser ? currentUser.charAt(0).toUpperCase() : 'U';
-  div.innerHTML = `
-    <div class="msg-av ${isAI?'ai-av':'user-av2'}">${isAI?'🧠':initials}</div>
-    <div>
-      <div class="msg-bubble">${content.replace(/\n/g,'<br>')}</div>
-      ${time ? `<div class="msg-time">${time}</div>` : ''}
-    </div>`;
-  msgs.appendChild(div);
-  msgs.scrollTop = msgs.scrollHeight;
-  return div;
+function renderMsg(role,content,time,animate=true){
+  const isAI=role==='ai', msgs=$('chatMessages');
+  const ws=document.getElementById('welcomeState'); if(ws)ws.remove();
+  const div=document.createElement('div'); div.className=`msg ${role}`;
+  if(!animate)div.style.animation='none';
+  const initials=currentUser?currentUser.charAt(0).toUpperCase():'U';
+  div.innerHTML=`<div class="msg-av ${isAI?'ai-av':'user-av2'}">${isAI?'🧠':initials}</div>
+    <div><div class="msg-bubble">${escHtml(content).replace(/\n/g,'<br>')}</div>${time?`<div class="msg-time">${time}</div>`:''}</div>`;
+  msgs.appendChild(div); msgs.scrollTop=msgs.scrollHeight; return div;
 }
 
-function addTypingBubble() {
-  const msgs = $('chatMessages');
-  const div = document.createElement('div');
-  div.className = 'msg ai'; div.id = 'typingBubble';
-  div.innerHTML = `<div class="msg-av ai-av">🧠</div><div class="msg-bubble"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
-  msgs.appendChild(div);
-  msgs.scrollTop = msgs.scrollHeight;
+function addTypingBubble(){
+  const msgs=$('chatMessages'), div=document.createElement('div');
+  div.className='msg ai'; div.id='typingBubble';
+  div.innerHTML=`<div class="msg-av ai-av">🧠</div><div class="msg-bubble"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
+  msgs.appendChild(div); msgs.scrollTop=msgs.scrollHeight;
 }
-function removeTypingBubble() { const el=$('typingBubble'); if(el) el.remove(); }
+function removeTypingBubble(){const el=$('typingBubble');if(el)el.remove();}
 
-function autoResize(el) { el.style.height='auto'; el.style.height=Math.min(el.scrollHeight,120)+'px'; }
-function handleKey(e) { if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg();} }
-function sendSugg(chip) { $('chatInput').value=chip.textContent; $('chatSuggs').style.display='none'; sendMsg(); }
+function autoResize(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,120)+'px';}
+function handleKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg();}}
+function sendSugg(chip){$('chatInput').value=chip.textContent;$('chatSuggs').style.display='none';sendMsg();}
 
-async function sendMsg() {
-  if (isSending) return;
-  const text = $('chatInput').value.trim();
-  if (!text) return;
-  if (!apiKey) { openApiModal(); return; }
-  if (!currentChatId) newChat();
-
-  $('chatInput').value = ''; $('chatInput').style.height='auto';
+async function sendMsg(){
+  if(isSending)return;
+  const text=$('chatInput').value.trim(); if(!text)return;
+  if(!currentChatId)newChat();
+  $('chatInput').value=''; $('chatInput').style.height='auto';
   $('chatSuggs').style.display='none';
-  renderMsg('user', text, timeStr());
-  conversationHistory.push({ role:'user', content:text });
-
-  isSending = true; $('sendBtn').disabled = true;
-  addTypingBubble();
-
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'x-api-key':apiKey,
-        'anthropic-version':'2023-06-01',
-        'anthropic-dangerous-direct-browser-access':'true'
-      },
-      body:JSON.stringify({ model:'claude-sonnet-4-5', max_tokens:1024, system:SYSTEM_PROMPT, messages:conversationHistory })
-    });
-    const data = await res.json();
-    removeTypingBubble();
-    if (data.error) {
-      renderMsg('ai', `⚠️ 错误：${data.error.message || '请检查 API Key'}`, timeStr());
-    } else {
-      const reply = data.content?.[0]?.text || '抱歉，未能获取回答。';
-      conversationHistory.push({ role:'assistant', content:reply });
-      renderMsg('ai', reply, timeStr());
-      saveCurrentChat(text, reply);
+  renderMsg('user',text,timeStr());
+  conversationHistory.push({role:'user',content:text});
+  isSending=true; $('sendBtn').disabled=true; addTypingBubble();
+  try{
+    const res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:conversationHistory})});
+    const data=await res.json(); removeTypingBubble();
+    if(data.error){renderMsg('ai',`⚠️ 错误：${data.error.message||'服务暂时不可用，请稍后重试'}`,timeStr());}
+    else{
+      const reply=data.content?.[0]?.text||'抱歉，未能获取回答。';
+      conversationHistory.push({role:'assistant',content:reply});
+      renderMsg('ai',reply,timeStr()); saveCurrentChat(text,reply);
     }
-  } catch(err) {
-    removeTypingBubble();
-    renderMsg('ai', '⚠️ 网络错误，请检查 API Key 与网络连接后重试。', timeStr());
-  }
-
-  isSending = false; $('sendBtn').disabled = false;
-  $('chatInput').focus();
+  }catch(err){removeTypingBubble();renderMsg('ai','⚠️ 网络错误，请稍后重试。',timeStr());}
+  isSending=false; $('sendBtn').disabled=false; $('chatInput').focus();
 }
 
-// ─── INVOICE ─────────────────────────────────────────────
-function getInvStore() { return JSON.parse(localStorage.getItem(userKey('invoices')) || '[]'); }
-function saveInvStore(d) { localStorage.setItem(userKey('invoices'), JSON.stringify(d)); }
+// INVOICE
+function getInvStore(){return JSON.parse(localStorage.getItem(userKey('invoices'))||'[]');}
+function saveInvStore(d){localStorage.setItem(userKey('invoices'),JSON.stringify(d));}
 
-function loadInvHistory() {
-  const list = $('invHistoryList');
-  const store = getInvStore();
-  if (!store.length) { list.innerHTML = '<div class="no-inv-history">暂无发票记录，录入分析后将自动保存</div>'; return; }
-  const typeIcon = { '增值税专用发票':'🟦','增值税普通发票':'🟨','电子普通发票':'📧','电子专用发票':'📨','机动车销售统一发票':'🚗','二手车销售统一发票':'🚙','收据/非正规票据':'⚠️' };
-  list.innerHTML = store.slice().reverse().map((inv,i) => `
+function loadInvHistory(){
+  const list=$('invHistoryList'), store=getInvStore();
+  if(!store.length){list.innerHTML='<div class="no-inv-history">暂无发票记录，录入分析后将自动保存</div>';return;}
+  const typeIcon={'增值税专用发票':'🟦','增值税普通发票':'🟨','电子普通发票':'📧','电子专用发票':'📨','机动车销售统一发票':'🚗','二手车销售统一发票':'🚙','收据/非正规票据':'⚠️'};
+  list.innerHTML=store.slice().reverse().map((inv,i)=>`
     <div class="inv-history-item" onclick="showInvRecord(${store.length-1-i})">
       <div class="inv-hist-icon">${typeIcon[inv.type]||'🧾'}</div>
       <div class="inv-hist-info">
@@ -785,113 +590,47 @@ function loadInvHistory() {
     </div>`).join('');
 }
 
-function showInvRecord(idx) {
-  const store = getInvStore();
-  const inv = store[idx];
-  if (!inv) return;
-  const card = $('invResultCard');
-  card.classList.add('show');
-  $('invResultBody').innerHTML = escHtml(inv.result||'').replace(/\n/g,'<br>');
-  const badge = $('invStatusBadge');
-  badge.className = 'status-badge ' + (inv.status==='ok'?'status-ok':inv.status==='warn'?'status-warn':'status-err');
-  badge.textContent = inv.status==='ok'?'✅ 合规':inv.status==='warn'?'⚠️ 注意':'❌ 风险';
+function showInvRecord(idx){
+  const store=getInvStore(), inv=store[idx]; if(!inv)return;
+  const card=$('invResultCard'); card.classList.add('show');
+  $('invResultBody').innerHTML=escHtml(inv.result||'').replace(/\n/g,'<br>');
+  const badge=$('invStatusBadge');
+  badge.className='status-badge '+(inv.status==='ok'?'status-ok':inv.status==='warn'?'status-warn':'status-err');
+  badge.textContent=inv.status==='ok'?'✅ 合规':inv.status==='warn'?'⚠️ 需注意':'❌ 存在风险';
   card.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-async function analyzeInvoice() {
-  if (!apiKey) { openApiModal(); return; }
-  const type = $('invType').value;
-  const code = $('invCode').value.trim();
-  const num = $('invNum').value.trim();
-  const date = $('invDate').value;
-  const amount = $('invAmount').value;
-  const tax = $('invTax').value;
-  const seller = $('invSeller').value.trim();
-  const sellerTax = $('invSellerTax').value.trim();
-  const goods = $('invGoods').value.trim();
-  const bizType = $('invBizType').value;
-  const note = $('invNote').value.trim();
-
-  if (!type) { alert('请选择发票类型'); return; }
-  if (!amount) { alert('请填写金额'); return; }
-  if (!bizType) { alert('请选择您的企业类型'); return; }
-
-  const totalAmount = (parseFloat(amount)||0) + (parseFloat(tax)||0);
-
-  const prompt = `请对以下发票信息进行专业的税务合规分析：
-
-发票类型：${type}
-发票代码：${code||'未提供'}
-发票号码：${num||'未提供'}
-开票日期：${date||'未提供'}
-金额（不含税）：${amount||'0'} 元
-税额：${tax||'0'} 元
-合计金额：${totalAmount.toFixed(2)} 元
-销售方名称：${seller||'未提供'}
-销售方税号：${sellerTax||'未提供'}
-货物或服务：${goods||'未提供'}
-购买方企业类型：${bizType}
-补充说明：${note||'无'}
-
-请从以下几个维度分析：
-1. 该发票是否可以用于抵扣增值税进项税额？说明原因
-2. 该发票能否税前扣除？
-3. 是否存在合规风险？（如：金额异常、税号格式、开票日期等）
-4. 具体操作建议
-
-最后给出总体评估：合规（ok）/ 需注意（warn）/ 存在风险（error），格式：【总体评估：合规/需注意/存在风险】`;
-
-  const card = $('invResultCard');
-  card.classList.add('show');
-  $('invResultBody').innerHTML = '';
-  $('invLoading').style.display = 'flex';
-  $('invAnalyzeBtn').disabled = true;
-  card.scrollIntoView({behavior:'smooth'});
-
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method:'POST',
-      headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-      body:JSON.stringify({model:'claude-sonnet-4-5',max_tokens:1024,system:'你是 TaxMind，中国税务专家，专注于发票合规分析。请给出准确、专业、实用的分析。',messages:[{role:'user',content:prompt}]})
-    });
-    const data = await res.json();
-    $('invLoading').style.display = 'none';
-    if (data.error) {
-      $('invResultBody').textContent = `⚠️ 错误：${data.error.message}`;
-      return;
-    }
-    const reply = data.content?.[0]?.text || '未能获取分析结果';
-
-    let status = 'warn';
-    if (reply.includes('总体评估：合规') || reply.includes('总体评估:合规')) status = 'ok';
-    else if (reply.includes('总体评估：存在风险') || reply.includes('总体评估:存在风险')) status = 'error';
-
-    const badge = $('invStatusBadge');
-    badge.className = 'status-badge ' + (status==='ok'?'status-ok':status==='warn'?'status-warn':'status-err');
-    badge.textContent = status==='ok'?'✅ 合规':status==='warn'?'⚠️ 需注意':'❌ 存在风险';
-    $('invResultBody').innerHTML = reply.replace(/\n/g,'<br>');
-
-    // Save record
-    const store = getInvStore();
-    store.push({ type, code, num, date, amount, tax, totalAmount, seller, sellerTax, goods, bizType, note, result:reply, status, savedAt:nowStr() });
-    saveInvStore(store);
-    loadInvHistory();
-  } catch(err) {
-    $('invLoading').style.display = 'none';
-    $('invResultBody').textContent = '⚠️ 网络错误，请检查 API Key 与网络连接。';
-  }
-  $('invAnalyzeBtn').disabled = false;
+async function analyzeInvoice(){
+  const type=$('invType').value, amount=$('invAmount').value, bizType=$('invBizType').value;
+  if(!type){alert('请选择发票类型');return;}
+  if(!amount){alert('请填写金额');return;}
+  if(!bizType){alert('请选择您的企业类型');return;}
+  const totalAmount=(parseFloat(amount)||0)+(parseFloat($('invTax').value)||0);
+  const invoiceData={type,code:$('invCode').value.trim(),num:$('invNum').value.trim(),date:$('invDate').value,amount,tax:$('invTax').value,totalAmount,seller:$('invSeller').value.trim(),sellerTax:$('invSellerTax').value.trim(),goods:$('invGoods').value.trim(),bizType,note:$('invNote').value.trim()};
+  const card=$('invResultCard'); card.classList.add('show');
+  $('invResultBody').innerHTML=''; $('invLoading').style.display='flex';
+  $('invAnalyzeBtn').disabled=true; card.scrollIntoView({behavior:'smooth'});
+  try{
+    const res=await fetch('/api/invoice',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({invoiceData})});
+    const data=await res.json(); $('invLoading').style.display='none';
+    if(data.error){$('invResultBody').textContent=`⚠️ 错误：${data.error.message}`;return;}
+    const reply=data.content?.[0]?.text||'未能获取分析结果';
+    let status='warn';
+    if(reply.includes('总体评估：合规')||reply.includes('总体评估:合规'))status='ok';
+    else if(reply.includes('总体评估：存在风险')||reply.includes('总体评估:存在风险'))status='error';
+    const badge=$('invStatusBadge');
+    badge.className='status-badge '+(status==='ok'?'status-ok':status==='warn'?'status-warn':'status-err');
+    badge.textContent=status==='ok'?'✅ 合规':status==='warn'?'⚠️ 需注意':'❌ 存在风险';
+    $('invResultBody').innerHTML=escHtml(reply).replace(/\n/g,'<br>');
+    const store=getInvStore();
+    store.push({...invoiceData,result:reply,status,savedAt:nowStr()});
+    saveInvStore(store); loadInvHistory();
+  }catch(err){$('invLoading').style.display='none';$('invResultBody').textContent='⚠️ 网络错误，请稍后重试。';}
+  $('invAnalyzeBtn').disabled=false;
 }
 
-// Init: check if logged in
-window.addEventListener('load', () => {
-  const saved = sessionStorage.getItem('tm_session');
-  if (saved) { enterApp(saved); }
-});
-// Persist session during tab
-window.addEventListener('beforeunload', () => {
-  if (currentUser) sessionStorage.setItem('tm_session', currentUser);
-});
+window.addEventListener('load',()=>{const s=sessionStorage.getItem('tm_session');if(s)enterApp(s);});
+window.addEventListener('beforeunload',()=>{if(currentUser)sessionStorage.setItem('tm_session',currentUser);});
 </script>
 </body>
 </html>
