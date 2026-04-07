@@ -28,22 +28,29 @@ export default async function handler(req, res) {
 - 回答长度适中，简单问题100-200字，复杂问题300-500字`;
 
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('https://api.deepseek.com/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': process.env.ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01',
+        'Authorization': `Bearer ${process.env.DEEPSEEK_API_KEY}`,
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-5',
+        model: 'deepseek-chat',
         max_tokens: 1024,
-        system: SYSTEM_PROMPT,
-        messages,
+        messages: [
+          { role: 'system', content: SYSTEM_PROMPT },
+          ...messages
+        ],
       }),
     });
     const data = await response.json();
-    res.status(200).json(data);
+    if (data.error) {
+      res.status(200).json({ error: data.error });
+    } else {
+      res.status(200).json({
+        content: [{ type: 'text', text: data.choices?.[0]?.message?.content || '抱歉，未能获取回答。' }]
+      });
+    }
   } catch (err) {
     res.status(500).json({ error: { message: '服务器错误，请稍后重试' } });
   }
