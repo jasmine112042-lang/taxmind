@@ -31,25 +31,32 @@ export default async function handler(req, res) {
 3. 是否存在合规风险？（如：金额异常、税号格式、开票日期等）
 4. 具体操作建议
 
-最后给出总体评估：合规（ok）/ 需注意（warn）/ 存在风险（error），格式：【总体评估：合规/需注意/存在风险】`;
+最后给出总体评估，格式：【总体评估：合规/需注意/存在风险】`;
 
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('https://api.deepseek.com/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': process.env.ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01',
+        'Authorization': `Bearer ${process.env.DEEPSEEK_API_KEY}`,
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-5',
+        model: 'deepseek-chat',
         max_tokens: 1024,
-        system: '你是 TaxMind，中国税务专家，专注于发票合规分析。请给出准确、专业、实用的分析。',
-        messages: [{ role: 'user', content: prompt }],
+        messages: [
+          { role: 'system', content: '你是 TaxMind，中国税务专家，专注于发票合规分析。请给出准确、专业、实用的分析。' },
+          { role: 'user', content: prompt }
+        ],
       }),
     });
     const data = await response.json();
-    res.status(200).json(data);
+    if (data.error) {
+      res.status(200).json({ error: data.error });
+    } else {
+      res.status(200).json({
+        content: [{ type: 'text', text: data.choices?.[0]?.message?.content || '未能获取分析结果。' }]
+      });
+    }
   } catch (err) {
     res.status(500).json({ error: { message: '服务器错误，请稍后重试' } });
   }
